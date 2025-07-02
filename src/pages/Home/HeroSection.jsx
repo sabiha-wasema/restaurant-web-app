@@ -1,10 +1,14 @@
 import React from 'react';
+import heroImage from "../../assets/heroImage.jpg"
 
 const HeroSection = () => {
     return (
-        <div>
-            <h1>Hero section</h1>
-        </div>
+       <section>
+        <img src={heroImage} 
+        alt="Delicious Food"
+        className='absolute insert-0 w-full h-full object-cover'
+         />
+       </section>
     );
 };
 
