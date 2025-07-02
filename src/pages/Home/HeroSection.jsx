@@ -16,15 +16,15 @@ const HeroSection = ({ mealsRef }) => {
       <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="relative z-10 max-w-4xl px-4 sm:px-6 lg:px-12 py-12">
-        <p className="border-1 text-xs text-gray-300 border-gray-300 rounded-full px-0 py-2 max-w-[15%] mb-3 flex justify-center items-center font-semibold">Hungry ?</p>
-        <h1 className="tracking-wider leading-tight mt-20 md:mt-12 lg:mt-0 text-gray-200 text-2xl sm:text-4xl lg:text-6xl font-bold mb-4">
+        <p className="mt-16 md:mt-0 border-1 text-xs text-gray-300 border-gray-300 rounded-full px-0 py-2 max-w-[30%] md:max-w-[15%] mb-3 flex justify-center items-center font-semibold">Hungry ?</p>
+        <h1 className="tracking-wider leading-tight md:mt-12 lg:mt-0 text-gray-200 text-2xl sm:text-4xl lg:text-6xl font-bold mb-1 sm:mb-4">
           JUST COME TO <br /> FOODIED & ORDER
         </h1>
-        <p className="text-gray-400 mb-6 text-sm sm:text-base md:text-lg max-w-[80%]">
+        <p className="text-gray-400 mb-2 md:mb-6 text-sm sm:text-base md:text-lg max-w-[80%]">
           Discover delicious meals from around the world — delivered fresh &
           fast!
         </p>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-2 md:gap-4">
          
           <button onClick={handleScroll} className="flex items-center gap-2 px-6 py-2 bg-amber-500 font-semibold text-gray-800 rounded-full hover:bg-amber-700 hover:text-gray-200 transition">
             Order Now <FaUtensils />
