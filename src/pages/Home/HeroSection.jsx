@@ -12,11 +12,11 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-black/40"></div>
 
-      <div className="relative z-10 max-w-4xl px-6 md:px-12  my-6">
-        <h1 className="tracking-wider leading-tight text-gray-200 text-4xl md:text-6xl font-bold mb-4">
+      <div className="relative z-10 max-w-4xl px-4 sm:px-6 lg:px-12 py-12">
+        <h1 className="tracking-wider leading-tight mt-20 md:mt-12 lg:mt-0 text-gray-200 text-2xl sm:text-4xl lg:text-6xl font-bold mb-4">
           JUST COME TO <br /> FOODIED & ORDER
         </h1>
-        <p className="text-gray-400 mb-6 text-md max-w-xl">
+        <p className="text-gray-400 mb-6 text-sm sm:text-base md:text-lg max-w-[80%]">
           Discover delicious meals from around the world — delivered fresh &
           fast!
         </p>
