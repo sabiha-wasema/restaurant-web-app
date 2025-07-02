@@ -1,4 +1,4 @@
-# 🍽️ Restaurant Meal Explorer
+# 🍽️ Restaurant Meal Web Application
 
 A responsive web application that allows users to explore, search, and discover meals using the free [https://www.themealdb.com/](https://nimble-sunburst-f98134.netlify.app/).  
 Built with React.js using local state management and styled with Tailwind CSS, this app showcases a clean, interactive, and fully responsive UI.
