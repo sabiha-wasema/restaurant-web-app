@@ -1,17 +1,30 @@
 import { useRef } from "react";
 import HeroSection from "./HeroSection";
-import MealCard from "../../components/MealCard/MealCard";
 import MealList from "../../components/MealList/MealList";
 import Footer from "../Footer/Footer";
+import errorImage from "../../assets/images-removebg-preview.png";
 
-const Home = ({ meals}) => {
-     const mealsRef = useRef(null);
+const Home = ({ meals, error }) => {
+  const mealsRef = useRef(null);
   return (
     <div>
       <HeroSection mealsRef={mealsRef} />
-       
-      <MealList ref={mealsRef} meals={meals} />
-      <Footer/>
+      {error && (
+        <div className="flex flex-col justify-center items-center py-10 px-4">
+          <img
+            src={errorImage}
+            alt="Error"
+            className="w-40 h-40 object-contain mb-4"
+          />
+          <p className="text-center text-red-500 font-semibold my-4">
+            {error}
+          </p>
+        </div>
+      )}
+
+      {!error && <MealList ref={mealsRef} meals={meals} />}
+
+      <Footer />
     </div>
   );
 };

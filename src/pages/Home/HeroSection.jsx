@@ -1,4 +1,4 @@
-import React from "react";
+
 import heroImage from "../../assets/heroImage.jpg";
 import { FaArrowRight, FaUtensils } from 'react-icons/fa';
 
