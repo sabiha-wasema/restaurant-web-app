@@ -13,6 +13,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="relative z-10 max-w-4xl px-4 sm:px-6 lg:px-12 py-12">
+        <p className="border-1 text-xs text-gray-300 border-gray-300 rounded-full px-0 py-2 max-w-[15%] mb-3 flex justify-center items-center font-semibold">Hungry ?</p>
         <h1 className="tracking-wider leading-tight mt-20 md:mt-12 lg:mt-0 text-gray-200 text-2xl sm:text-4xl lg:text-6xl font-bold mb-4">
           JUST COME TO <br /> FOODIED & ORDER
         </h1>
