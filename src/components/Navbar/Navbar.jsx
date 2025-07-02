@@ -12,7 +12,7 @@ const Navbar = ({ query, setQuery, handleSubmit, getRandomMeal }) => {
         <div>
           <Link
             to=""
-            className="text-3xl font-bold text-amber-500 hover:text-amber-600 transition"
+            className="text-2xl font-bold text-amber-500 hover:text-amber-600 transition"
           >
             🍽️ FOODIED
           </Link>
@@ -30,12 +30,7 @@ const Navbar = ({ query, setQuery, handleSubmit, getRandomMeal }) => {
           >
             Menu
           </Link>
-          <Link
-            to="/about"
-            className="text-gray-200 font-semibold hover:text-amber-500 transition"
-          >
-            About
-          </Link>
+          
 
           <form
             onSubmit={handleSubmit}
@@ -44,7 +39,7 @@ const Navbar = ({ query, setQuery, handleSubmit, getRandomMeal }) => {
             <input
               type="text"
               placeholder="Search meal..."
-              className="border px-4 py-2 rounded w-full sm:w-auto flex-1 min-w-[200px] text-gray-200 focus:outline-none"
+              className="border px-2 py-2 rounded w-full sm:w-auto flex-1 max-w-[150px] text-gray-200 focus:outline-none"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
@@ -77,7 +72,7 @@ const Navbar = ({ query, setQuery, handleSubmit, getRandomMeal }) => {
           </button>
           <Link
             to="/"
-            className="ml-4 px-6 py-2 bg-white font-semibold text-gray-700 border-1 rounded-full hover:bg-amber-500 hover:text-white transition"
+            className="ml-4 px-4 py-1 bg-white font-semibold text-gray-700 border-1 rounded-full hover:bg-amber-500 hover:text-white transition"
           >
             Sign Up
           </Link>
@@ -128,12 +123,7 @@ const Navbar = ({ query, setQuery, handleSubmit, getRandomMeal }) => {
           >
             Home
           </Link>
-          <Link
-            to="/about"
-            className="block text-gray-700 font-semibold hover:text-amber-500 transition"
-          >
-            About Us
-          </Link>
+          
           <Link
             to="/menu"
             className="block text-gray-700 font-semibold hover:text-amber-500 transition"
@@ -159,7 +149,7 @@ const Navbar = ({ query, setQuery, handleSubmit, getRandomMeal }) => {
             <button
             type="button"
             aria-label="Random"
-            className="text-xl text-gray-200 font-semibold hover:text-amber-500 transition"
+            className="text-xl text-gray-700 font-semibold hover:text-amber-500 transition"
             onClick={getRandomMeal}
           >
             <FaRandom />
