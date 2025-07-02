@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ query, setQuery, searchMeals}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      searchMeals(query.trim());
+    }
+  };
+
   return (
     <nav className="sticky top-0 z-50">
       <div className="bg-white md:bg-transparent max-w-7xl mx-auto px-4 lg:px-10 py-4 flex justify-between items-center">
@@ -34,20 +42,28 @@ const Navbar = () => {
           >
             About
           </Link>
-          <Link
-            to="/contact"
-            className="text-gray-200 font-semibold hover:text-amber-500 transition"
+        
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-wrap items-center gap-2"
           >
-            {" "}
-            contact
-          </Link>
-          <button
+            <input
+              type="text"
+              placeholder="Search meal..."
+              className="border px-4 py-2 rounded w-full sm:w-auto flex-1 min-w-[200px] text-white focus:outline-none"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+              <button
+              type="submit"
             aria-label="Search"
             className="text-xl text-gray-200 font-semibold hover:text-amber-500 transition"
-            onClick={() => alert("SearchBar Clicked!")}
+           
           >
             <FaSearch />
           </button>
+          </form>
+        
           <button
             aria-label="Cart"
             className="text-gray-200 hover:text-amber-500 transition text-xl relative"
@@ -123,27 +139,33 @@ const Navbar = () => {
           >
             Menu
           </Link>
-          <Link
-            to="/contact"
-            className="block text-gray-700 font-semibold hover:text-amber-500 transition"
-          >
-            Contact
-          </Link>
+        
 
-          <button
-            aria-label="Search"
-            className="flex items-center text-gray-700 font-semibold hover:text-amber-500 transition text-xl"
-            onClick={() => alert("Search clicked!")}
+         <form
+            onSubmit={handleSubmit}
+            className="flex items-center gap-2"
           >
-            <FaSearch />
-          </button>
+            <input
+              type="text"
+              placeholder="Search meal..."
+              className="border px-4 py-2 rounded w-full focus:outline-none"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button
+              type="submit"
+              aria-label="Search"
+              className="text-xl text-gray-700 hover:text-amber-500 transition"
+            >
+              <FaSearch />
+            </button>
+          </form>
 
           <button
             aria-label="Cart"
             className="flex items-center text-gray-700 font-semibold hover:text-amber-500 transition text-xl relative"
             onClick={() => alert("Cart clicked!")}
           >
-           
             <FaShoppingCart />{" "}
             <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs px-1">
               2
