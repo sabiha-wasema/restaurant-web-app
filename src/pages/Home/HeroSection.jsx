@@ -2,7 +2,10 @@ import React from "react";
 import heroImage from "../../assets/heroImage.jpg";
 import { FaArrowRight, FaUtensils } from 'react-icons/fa';
 
-const HeroSection = () => {
+const HeroSection = ({ mealsRef }) => {
+  const handleScroll = () => {
+    mealsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <section className="relative w-full h-[100vh] flex items-center justify-start overflow-hidden -mt-[72px]">
       <img
@@ -22,10 +25,12 @@ const HeroSection = () => {
           fast!
         </p>
         <div className="flex flex-wrap gap-4">
-          <button className="flex items-center gap-2 px-6 py-2 bg-amber-500 font-semibold text-gray-800 rounded-full hover:bg-amber-700 hover:text-gray-200 transition">
+         
+          <button onClick={handleScroll} className="flex items-center gap-2 px-6 py-2 bg-amber-500 font-semibold text-gray-800 rounded-full hover:bg-amber-700 hover:text-gray-200 transition">
             Order Now <FaUtensils />
           </button>
-          <button className="flex items-center gap-2 bg-transparent border border-gray-200 hover:bg-gray-200 hover:text-black text-gray-200 px-6 py-3 rounded-full transition">
+         
+          <button onClick={handleScroll} className="flex items-center gap-2 bg-transparent border border-gray-200 hover:bg-gray-200 hover:text-black text-gray-200 px-6 py-3 rounded-full transition">
             Explore More <FaArrowRight />
           </button>
         </div>

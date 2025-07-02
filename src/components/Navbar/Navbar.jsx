@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-import { FaSearch, FaShoppingCart } from "react-icons/fa";
+import { FaSearch, FaShoppingCart,FaRandom } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ query, setQuery, searchMeals}) => {
+const Navbar = ({ query, setQuery, handleSubmit, getRandomMeal }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (query.trim()) {
-      searchMeals(query.trim());
-    }
-  };
 
   return (
     <nav className="sticky top-0 z-50">
@@ -26,7 +20,7 @@ const Navbar = ({ query, setQuery, searchMeals}) => {
         <div className="hidden md:flex items-center space-x-4 lg:space-x-8 ">
           <Link
             to="/"
-            className="text-white font-semibold hover:text-amber-500 transition"
+            className="text-gray-200 font-semibold hover:text-amber-500 transition"
           >
             Home
           </Link>
@@ -42,7 +36,7 @@ const Navbar = ({ query, setQuery, searchMeals}) => {
           >
             About
           </Link>
-        
+
           <form
             onSubmit={handleSubmit}
             className="flex flex-wrap items-center gap-2"
@@ -50,20 +44,27 @@ const Navbar = ({ query, setQuery, searchMeals}) => {
             <input
               type="text"
               placeholder="Search meal..."
-              className="border px-4 py-2 rounded w-full sm:w-auto flex-1 min-w-[200px] text-white focus:outline-none"
+              className="border px-4 py-2 rounded w-full sm:w-auto flex-1 min-w-[200px] text-gray-200 focus:outline-none"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-              <button
+            <button
               type="submit"
-            aria-label="Search"
+              aria-label="Search"
+              className="text-xl text-gray-200 font-semibold hover:text-amber-500 transition"
+            >
+              <FaSearch />
+            </button>
+            <button
+            type="button"
+            aria-label="Random"
             className="text-xl text-gray-200 font-semibold hover:text-amber-500 transition"
-           
+            onClick={getRandomMeal}
           >
-            <FaSearch />
+            <FaRandom />
           </button>
           </form>
-        
+
           <button
             aria-label="Cart"
             className="text-gray-200 hover:text-amber-500 transition text-xl relative"
@@ -139,12 +140,8 @@ const Navbar = ({ query, setQuery, searchMeals}) => {
           >
             Menu
           </Link>
-        
 
-         <form
-            onSubmit={handleSubmit}
-            className="flex items-center gap-2"
-          >
+          <form onSubmit={handleSubmit} className="flex items-center gap-2">
             <input
               type="text"
               placeholder="Search meal..."
@@ -159,6 +156,14 @@ const Navbar = ({ query, setQuery, searchMeals}) => {
             >
               <FaSearch />
             </button>
+            <button
+            type="button"
+            aria-label="Random"
+            className="text-xl text-gray-200 font-semibold hover:text-amber-500 transition"
+            onClick={getRandomMeal}
+          >
+            <FaRandom />
+          </button>
           </form>
 
           <button
