@@ -3,6 +3,7 @@ import HeroSection from "./HeroSection";
 import MealList from "../../components/MealList/MealList";
 import Footer from "../Footer/Footer";
 import errorImage from "../../assets/images-removebg-preview.png";
+import ScrollToTopButton from "../ScrollToTopButton";
 
 const Home = ({ meals, error }) => {
   const mealsRef = useRef(null);
@@ -25,6 +26,7 @@ const Home = ({ meals, error }) => {
       {!error && <MealList ref={mealsRef} meals={meals} />}
 
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };

@@ -55,6 +55,7 @@ function App() {
     e.preventDefault();
     if (query.trim()) {
       searchMeals(query.trim());
+      setQuery("");
     }
   };
 
