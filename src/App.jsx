@@ -5,15 +5,18 @@ import Navbar from "./components/Navbar/Navbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MealList from "./components/MealList/MealList";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   const [meals, setMeals] = useState([]);
   const [query, setQuery] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const searchMeals = async (searchQuery) => {
     try {
       setError("");
+      setLoading(true);
       const res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`
       );
@@ -27,11 +30,15 @@ function App() {
       console.error("Failed to fetch meals", error);
       setError("Something went wrong while fetching meals.");
     }
+    finally {
+    setLoading(false);
+  }
   };
 
   const getRandomMeal = async () => {
     try {
       setError("");
+      setLoading(true);
       const res = await axios.get(
         "https://www.themealdb.com/api/json/v1/1/random.php"
       );
@@ -45,6 +52,9 @@ function App() {
       console.error("Failed to fetch random meal", error);
       setError("Something went wrong while fetching a random meal.");
     }
+    finally {
+    setLoading(false);
+  }
   };
 
   useEffect(() => {
@@ -68,8 +78,9 @@ function App() {
         getRandomMeal={getRandomMeal}
       />
       <Routes>
-        <Route path="/" element={<Home meals={meals} error={error} />} />
+        <Route path="/" element={<Home meals={meals} loading={loading} error={error} />} />
         <Route path="/menu" element={<MealList meals={meals} error={error} />} />
+       <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

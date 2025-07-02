@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer";
 import errorImage from "../../assets/images-removebg-preview.png";
 import ScrollToTopButton from "../ScrollToTopButton";
 
-const Home = ({ meals, error }) => {
+const Home = ({ meals, error ,loading}) => {
   const mealsRef = useRef(null);
   return (
     <div>
@@ -23,7 +23,7 @@ const Home = ({ meals, error }) => {
         </div>
       )}
 
-      {!error && <MealList ref={mealsRef} meals={meals} />}
+      {!error && <MealList ref={mealsRef} loading={loading} meals={meals} />}
 
       <Footer />
       <ScrollToTopButton />
